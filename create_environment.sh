@@ -8,7 +8,6 @@
 
 read -p "Enter your name: " name
 main_dir="submission_reminder_${name}"
-
 mkdir -p ${main_dir}/{config,scripts,data,assets}
 
 # Create files
@@ -27,9 +26,9 @@ EOL
 cat <<'EOL' > ${main_dir}/scripts/functions.sh
 #!/bin/bash
 check_pending_submissions() {
-  while IFS=',' read -r name status; do
+  while IFS=',' read -r student status; do
     if [ "$status" != "submitted" ]; then
-      echo "Reminder: $name $REMINDER_MESSAGE"
+      echo "Reminder: $student $REMINDER_MESSAGE"
     fi
   done < ../data/submissions.txt
 }
@@ -67,6 +66,7 @@ bash ./reminder.sh
 EOL
 
 chmod +x ${main_dir}/scripts/*.sh
+
 echo "✅ Environment setup complete!"
 echo "Directory created: ${main_dir}"
 
