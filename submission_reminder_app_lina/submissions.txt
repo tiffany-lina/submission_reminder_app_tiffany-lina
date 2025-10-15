@@ -1,0 +1,7 @@
+John,Doe,no
+Jane,Smith,yes
+Mike,Brown,no
+Anna,White,yes
+Tom,Green,no
+Lucy,Black,yes
+
