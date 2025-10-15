@@ -1,15 +1,19 @@
 #!/bin/bash
+
+# ============================================
 # Script: copilot_shell_script.sh
-# Purpose: Update assignment name in config.env and check submissions
+# Author: Tiffany Lina
+# Description: Updates assignment name in config.env
+# ============================================
 
-# Prompt user for new assignment name
-read -p "Enter the new assignment name: " new_assignment
+# Ask for the new assignment name
+read -p "Enter new assignment name: " new_assignment
 
-# Replace the ASSIGNMENT value in config.env
-sed -i "s/^ASSIGNMENT=.*/ASSIGNMENT=\"$new_assignment\"/" ./config.env
+# Replace assignment name in config.env
+sed -i "s/^ASSIGNMENT=.*/ASSIGNMENT=\"$new_assignment\"/" submission_reminder_tiffany/config/config.env
 
-echo "Assignment updated to '$new_assignment' in config.env"
+echo "✅ Assignment name updated to '$new_assignment'"
 
-# Run startup.sh to check students who have not submitted
-./startup.sh
+# Rerun startup.sh to check reminders for new assignment
+bash submission_reminder_tiffany/scripts/startup.sh
 
